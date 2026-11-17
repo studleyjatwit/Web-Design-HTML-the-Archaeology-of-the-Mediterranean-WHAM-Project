@@ -3,7 +3,7 @@
 Website project for CSAS Studio at Wentworth Institute of Technology 
 
 # The Team 
-Jamison Studley, Jeremie Hodgedon, Eouin Darlington
+Jamison Studley, Jeremie Hodgdon, Eouin Darlington
 
 # Purpose
 The WHAM project’s goal is to bring together your front-end HTML
