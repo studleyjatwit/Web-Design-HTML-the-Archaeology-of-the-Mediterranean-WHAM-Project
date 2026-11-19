@@ -56,9 +56,10 @@ Part B: Web Design and HTML
 9. Use of an organized file folder and file path structure.
 10. Final presentation/explication of code and AI usage
 
-
-
 # Style Plan
+
+Ideas for the style 
+we want it to look like paapyrus 
 
 
 
