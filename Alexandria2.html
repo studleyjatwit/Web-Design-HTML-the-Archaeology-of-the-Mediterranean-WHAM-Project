@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Alexandria - WHAM Project Roman Egypt</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body { 
+      margin: 0;
+      padding: 0;
+      background-color: #fcfaf5;
+      color: #222;
+    }
+
+    /* =========================================
+       HOME PAGE NAVIGATION BAR
+       ========================================= */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #ecbd47;
+  display: flex;
+}
+
+ul li a {
+  display: block;
+  color: rgb(156, 23, 23);
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  background-color: #111111;
+}
+    ul.navbar {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      background-color: #ecbd47;
+      display: flex;
+      border-bottom: 3px solid rgb(156, 23, 23);
+    }
+/* okay so i am gonna fuck with this a bit more
+this whole area is like the navigation bar and i just need to update it to be more like the other one i think
+*/
+    ul.navbar li a {
+      display: block;
+      color: rgb(156, 23, 23);
+      padding: 14px 16px;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+    }
+
+    ul.navbar li a:hover {
+      background-color: #111111;
+      color: #ecbd47;
+    }
+
+    ul.navbar li a.active-page {
+      background-color: rgb(156, 23, 23);
+      color: #ecbd47;
+    }
+
+    /* 
+       CENTERED CONTENT CONTAINER
+       this is like, the main content or something maybe.
+        */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 25px 20px 50px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: rgb(0, 0, 0);
+      margin-bottom: 10px;
+    }
+
+    .intro-text {
+      max-width: 750px;
+      margin: 0 auto 25px auto;
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    /* 
+       MY MAPS CONTAINER (8 LAYERS)
+       Fun imaging for what everything looks like woahhhh
+       */
+    .map-wrapper {
+      width: 100%;
+      max-width: 850px;
+      height: 500px;
+      margin: 0 auto 20px auto;
+      border: 3px solid rgb(0, 0, 0);
+      border-radius: 6px;
+      overflow: hidden;
+      background-color: #e9ecef;
+    }
+
+    .map-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: none; /* Hidden until selected on the timeline */
+    }
+
+    .map-frame.active {
+      display: block;
+    }
+
+    /* Horizontal Interactive Timeline Bar */
+    .timeline-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px auto;
+      max-width: 900px;
+    }
+
+    .nav-btn {
+      background: #222;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .nav-btn:disabled {
+      background: #aaa;
+      cursor: not-allowed;
+    }
+
+    .timeline-track {
+      display: flex;
+      overflow-x: auto;
+      gap: 8px;
+      padding: 8px 4px;
+      scrollbar-width: thin;
+    }
+
+    .era-btn {
+      flex: 0 0 auto;
+      background: #fff;
+      border: 2px solid #ccc;
+      border-radius: 20px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .era-btn:hover {
+      border-color: #555;
+    }
+
+    .era-btn.active {
+      background: #222;
+      color: #fff;
+      border-color: #222;
+    }
+
+    /* Era Description Card */
+    .era-card {
+      max-width: 850px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: left;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .era-card h2 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      color: #111;
+    }
+
+    .era-card p {
+      margin-bottom: 0;
+      line-height: 1.6;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+<ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="Alexandria.html">Alexandria</a></li>
+  <li><a href="Alexandria2.html">Alexandriatimeline</a></li>
+</ul>
+
+  <div class="container">
+    <h1>Alexandria: Urban Center of Roman Egypt</h1>
+    <p class="subtitle">
+      Alexandria served as one of the most important cities in both the Roman Empire and the Egyptian world. 
+      Select a period on the timeline below to see how the city's geography and landmarks changed over time.
+    </p>
+
+    <!-- 1. MAP CONTAINER (8 My Maps Iframes) -->
+    <div class="map-wrapper">
+      <iframe id="map-0" class="map-frame active" src="https://www.google.com/maps/d/u/2/embed?mid=1PQ1qJy_014ZBKMjpArdffOR34ifOvuw&ehbc=2E312F&noprof=1"></iframe>
+      <iframe id="map-1" class="map-frame" src="https://www.google.com/maps/d/u/2/embed?mid=1srTYfXSp3NR4w930gQvMqtNIj2lCJ1o&ehbc=2E312F&noprof=1"></iframe>
+      <iframe id="map-2" class="map-frame" src="https://www.google.com/maps/d/u/2/embed?mid=1vqjprmRmr0xllodvR_5Oe-z2G_W2Dio&ehbc=2E312F&noprof=1"></iframe>
+      <iframe id="map-3" class="map-frame" src="https://www.google.com/maps/d/u/2/embed?mid=1S1MOdQJAhlG8McCQYRLhQajCAuVvbZw&ehbc=2E312F&noprof=1"></iframe>
+      <iframe id="map-4" class="map-frame" src="https://www.google.com/maps/d/u/2/embed?mid=1ibFPt0IG35O0dPhdOoUJ15E_lciVv5I&ehbc=2E312F&noprof=1"></iframe>
+      <iframe id="map-5" class="map-frame" src="https://www.google.com/maps/d/u/2/embed?mid=1p13O6I8thi6GC4T2nw1iyEq8pM2E4Cc&ehbc=2E312F&noprof=1"></iframe>
+      <iframe id="map-6" class="map-frame" src="https://www.google.com/maps/d/u/2/embed?mid=1vgXjOslW3YtkoF6hwui4wBSmHWmwcSs&ehbc=2E312F&noprof=1"></iframe>
+      <iframe id="map-7" class="map-frame" src="https://www.google.com/maps/d/u/2/embed?mid=1bK_rkrXd2FakjAQ82rKhENF4kx8Xh_I&ehbc=2E312F&noprof=1"></iframe>
+    </div>
+
+    <!-- 2. INTERACTIVE TIMELINE NAVIGATION -->
+    <div class="timeline-controls">
+      <button id="prev-btn" class="nav-btn" onclick="changeEra(-1)">&#8592; Prev</button>
+      
+      <div class="timeline-track" id="timeline-track">
+        <button class="era-btn active" onclick="selectEra(0)">332–323 BCE: Founding</button>
+        <button class="era-btn" onclick="selectEra(1)">323–30 BCE: Ptolemaic</button>
+        <button class="era-btn" onclick="selectEra(2)">30 BCE–68 CE: Annexation</button>
+        <button class="era-btn" onclick="selectEra(3)">69–192 CE: Kitos & Hadrian</button>
+        <button class="era-btn" onclick="selectEra(4)">193–284 CE: 3rd-C. Crisis</button>
+        <button class="era-btn" onclick="selectEra(5)">284–324 CE: Diocletian</button>
+        <button class="era-btn" onclick="selectEra(6)">324–451 CE: Christianization</button>
+        <button class="era-btn" onclick="selectEra(7)">451–641 CE: Byzantine</button>
+      </div>
+
+      <button id="next-btn" class="nav-btn" onclick="changeEra(1)">Next &#8594;</button>
+    </div>
+
+    <!-- 3. HISTORICAL DETAILS FOR THE ACTIVE ERA -->
+    <div class="era-card" id="era-card">
+      <h2 id="era-title">Layer 1: Alexander the Great & The Master Plan (332–323 BCE)</h2>
+      <p id="era-desc">
+        Alexander chooses the coastal strip between Lake Mareotis and the Mediterranean beside the native village of Rhakotis. Architect Dinocrates lays out the orthogonal grid along the Canopic Way, and Ptolemy I later entombs Alexander's body at the Soma.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Text made to match each area. To be updated with more detailed descriptions as research progresses.
+    const eras = [
+      {
+        title: "Layer 1: Alexander the Great & The Master Plan (332–323 BCE)",
+        desc: "Alexander chooses the coastal strip between Lake Mareotis and the Mediterranean beside the native village of Rhakotis. Architect Dinocrates lays out the orthogonal grid along the Canopic Way, and Ptolemy I later entombs Alexander's body at the Soma."
+      },
+      {
+        title: "Layer 2: The Ptolemaic Golden Age & Decline (323–30 BCE)",
+        desc: "Alexandria becomes the intellectual capital of the Mediterranean with the construction of the Heptastadion causeway, the Lighthouse of Pharos, the Brucheion Royal Quarter, and the Great Library—ending with Julius Caesar's siege and the defeat of Antony and Cleopatra."
+      },
+      {
+        title: "Layer 3: Early Roman Annexation & Restructuring (30 BCE–68 CE)",
+        desc: "Augustus strips Alexandria of royal autonomy, stations legions east of the walls at Camp Caesar (Nicopolis), repurposes the Caesareum for the Imperial Cult, and Alexandria becomes Rome's vital grain port."
+      },
+      {
+        title: "Layer 4: Civic Expansion & The Kitos War Devastation (69–192 CE)",
+        desc: "Major Flavian and Antonine urban growth is interrupted by the Kitos War (115–117 CE), which wipes out Alexandria's ancient Delta Quarter before Emperor Hadrian funds sweeping civic reconstruction."
+      },
+      {
+        title: "Layer 5: Severan Reforms & The 3rd-Century Crisis (193–284 CE)",
+        desc: "Septimius Severus grants Alexandria a local city council, but the 3rd century brings Caracalla's massacre and Emperor Aurelian's 272–273 CE siege against Palmyra, which devastates the ancient Brucheion Royal Quarter."
+      },
+      {
+        title: "Layer 6: Tetrarchic Reorganization (284–324 CE)",
+        desc: "After an eight-month siege in which he cuts the city's water aqueducts, Diocletian erects Pompey's Pillar inside the Serapeum court and rebuilds central Alexandria around the Kom el-Dikka baths and odeon."
+      },
+      {
+        title: "Layer 7: Christianization & The Fall of Paganism (324–451 CE)",
+        desc: "Alexandria's sacred geography transforms as the Caesareum becomes the Great Church and Patriarch Theophilus demolishes the Temple of Serapis in 391 CE under Emperor Theodosius I's decrees."
+      },
+      {
+        title: "Layer 8: Disasters & Late Antique / Byzantine Alexandria (451–641 CE)",
+        desc: "Major earthquakes and tsunamis submerge parts of the eastern harbor coastline while philosophical schools continue at Kom el-Dikka until the 641 CE Treaty of Alexandria concludes Roman rule."
+      }
+    ];
+
+    let currentIndex = 0;
+
+    function selectEra(index) {
+      currentIndex = index;
+
+      // 1. Switch active My Maps iframe
+      document.querySelectorAll('.map-frame').forEach((frame, i) => {
+        frame.classList.toggle('active', i === index);
+      });
+
+      // 2. Highlight active timeline button & scroll it into view
+      const buttons = document.querySelectorAll('.era-btn');
+      buttons.forEach((btn, i) => {
+        btn.classList.toggle('active', i === index);
+        if (i === index) {
+          btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      });
+
+      // 3. Update title and description card
+      document.getElementById('era-title').textContent = eras[index].title;
+      document.getElementById('era-desc').textContent = eras[index].desc;
+
+      // 4. Enable/disable Prev and Next buttons
+      document.getElementById('prev-btn').disabled = (index === 0);
+      document.getElementById('next-btn').disabled = (index === eras.length - 1);
+    }
+
+    function changeEra(step) {
+      const nextIndex = currentIndex + step;
+      if (nextIndex >= 0 && nextIndex < eras.length) {
+        selectEra(nextIndex);
+      }
+    }
+
+    // Initialize button states on load
+    selectEra(0);
+  </script>
+
+</body>
+</html>
